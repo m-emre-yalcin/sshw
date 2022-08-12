@@ -63,6 +63,20 @@
         }
       }
 
+      .theme-btn {
+        cursor: pointer;
+        background-color: var(--bg);
+        border-radius: var(--box-radius);
+        border: 1px solid var(--border);
+        width: 32px;
+        height: 32px;
+        svg {
+          width: 24px;
+          height: 24px;
+          fill: var(--primary-text);
+        }
+      }
+
       &.user {
         display: flex;
         align-items: center;

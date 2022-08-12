@@ -1,7 +1,8 @@
-import React, { useMemo } from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { ReactComponent as ReactIcon } from "../../assets/icons/react.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/icons/logout.svg";
+import { ReactComponent as ThemeIcon } from "../../assets/icons/theme.svg";
 
 // Components:
 export const View = (props: ViewProps) => {
@@ -67,6 +68,15 @@ export const ViewHeader = (props: ViewHeaderProps) => {
           </div>
         </div>
 
+        <div className="col">
+          <div
+            className="theme-btn center"
+            onClick={() => props.onSwitchTheme()}
+          >
+            <ThemeIcon />
+          </div>
+        </div>
+
         <div className="col user">
           <div className="avatar">
             <img
@@ -116,6 +126,7 @@ interface ViewHeaderProps {
     | {
         [name: string]: any;
       };
+  onSwitchTheme: () => any;
 }
 
 // Aside

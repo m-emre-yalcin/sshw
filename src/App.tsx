@@ -8,6 +8,7 @@ import { ReactComponent as ProfileIcon } from "./assets/icons/profile.svg";
 import getUser from "./services/fetch/queries/getUser";
 
 function App({ tab }: { tab?: string }) {
+  const [theme, setTheme] = useState("light");
   const [user, setUser] = useState({});
   const [list, setList] = useState([
     {
@@ -59,11 +60,22 @@ function App({ tab }: { tab?: string }) {
     // re-render
     setList([...list]);
   };
+  const switchTheme = () => {
+    const val = theme === "light" ? "dark" : "light";
+
+    localStorage.setItem("theme", val);
+    document.getElementsByTagName("html")[0].setAttribute("theme", val);
+    setTheme(val);
+  };
 
   // check for saved user credentials:
   useEffect(() => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
+    const theme = localStorage.getItem("theme") || "light";
+
+    document.getElementsByTagName("html")[0].setAttribute("theme", theme);
+    setTheme(theme);
 
     if (token && user) {
       setUser(JSON.parse(user));
@@ -77,7 +89,7 @@ function App({ tab }: { tab?: string }) {
   if (activeTab) {
     return (
       <View
-        header={<ViewHeader user={user} />}
+        header={<ViewHeader user={user} onSwitchTheme={switchTheme} />}
         aside={
           <ViewAside list={list} onSelect={selectTab} onLogout={onLogout} />
         }
