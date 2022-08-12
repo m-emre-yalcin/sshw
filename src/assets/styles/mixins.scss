@@ -1,0 +1,14 @@
+@mixin create-color-variables($colors) {
+  @each $name, $color in $colors {
+    #{'--' + $name + '-darker'}: scale-color($color, $lightness: -10%);
+    #{'--' + $name + '-dark'}: scale-color($color, $lightness: -5%);
+    #{'--' + $name}: scale-color($color, $lightness: 0%);
+    #{'--' + $name + '-light'}: scale-color($color, $lightness: 5%);
+    #{'--' + $name + '-lighter'}: scale-color($color, $lightness: 10%);
+  }
+}
+@mixin create-variables($variables) {
+  @each $name, $value in $variables {
+    #{'--' + $name}: $value;
+  }
+}

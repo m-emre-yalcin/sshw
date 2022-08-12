@@ -1,0 +1,80 @@
+// sass functions
+@import "./mixins.scss";
+
+// theme colors
+@import "./themes/light.scss";
+@import "./themes/dark.scss";
+
+// variables
+@import "./variables.scss";
+
+// font
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap");
+
+:root {
+  @include create-variables($variables);
+}
+:root,
+:root[theme="light"] {
+  @include create-color-variables($light);
+}
+:root[theme="dark"] {
+  @include create-color-variables($dark);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: fill-available;
+  height: -webkit-fill-available;
+}
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url(../images/floral-grey.jpg) center;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: var(--font-family);
+}
+
+h1 {
+  padding: var(--pd-1) 0;
+  margin: var(--pd-1) 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, auto));
+  grid-auto-rows: 200px;
+  gap: 1rem;
+  padding: 1rem;
+
+  .item {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--box-radius);
+    transition: transform 0.12s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

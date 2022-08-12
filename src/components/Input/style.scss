@@ -1,0 +1,25 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--pd-2) 0;
+
+  label {
+    text-transform: capitalize;
+    font-weight: 200;
+    font-size: 0.7rem;
+    text-indent: 20px;
+    transform: translateY(-2px);
+    user-select: none;
+  }
+
+  input {
+    outline: unset;
+    border: 1px solid var(--border);
+    border-radius: var(--box-radius);
+    padding: var(--pd-2);
+
+    &:focus {
+      border: 1px solid var(--border-darker);
+    }
+  }
+}

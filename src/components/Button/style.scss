@@ -1,0 +1,28 @@
+.button-container {
+  margin: var(--pd-3);
+
+  button {
+    border-radius: var(--box-radius);
+    padding: var(--pd-2);
+    outline: unset;
+    cursor: pointer;
+    background-color: var(--primary);
+    border: 1px solid var(--primary-darker);
+    color: var(--secondary-text);
+    box-shadow: 0 0 8px rgb(254, 134, 134), 4px 0 4px rgb(80, 80, 251),
+      -4px 4px 4px rgb(94, 251, 80);
+    transition: box-shadow 0.5s ease,
+      transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:hover {
+      background-color: var(--primary);
+      box-shadow: 0 -2px 24px rgba(254, 134, 134, 0.561),
+        8px 0 28px rgba(80, 80, 251, 0.561),
+        0px 9px 22px rgba(94, 251, 80, 0.572);
+      transform: scale(1.04);
+    }
+    &:active {
+      transform: scale(1.12);
+    }
+  }
+}
